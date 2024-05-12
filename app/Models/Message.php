@@ -43,7 +43,7 @@ class Message extends BaseModel implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection(static::AUDIO_FILE_COLLECTION)
+        $this->addMediaCollection(self::AUDIO_FILE_COLLECTION)
             ->acceptsMimeTypes(['application/octet-stream'])
             ->singleFile();
     }
