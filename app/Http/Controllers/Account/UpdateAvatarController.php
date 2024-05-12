@@ -14,7 +14,7 @@ class UpdateAvatarController extends Controller
     public function __invoke(UpdateAvatarRequest $request): Response
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         $user->addMediaFromRequest('avatar')->toMediaCollection(User::AVATAR_COLLECTION);
 

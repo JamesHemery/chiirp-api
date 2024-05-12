@@ -14,7 +14,7 @@ class DeleteAccountController extends Controller
     public function __invoke(DeleteAccountRequest $request): Response
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         $user->delete();
 

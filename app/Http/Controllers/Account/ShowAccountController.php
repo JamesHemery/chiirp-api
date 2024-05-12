@@ -14,7 +14,7 @@ class ShowAccountController extends Controller
     public function __invoke(ShowAccountRequest $request): AccountResource
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         return AccountResource::make($user);
     }

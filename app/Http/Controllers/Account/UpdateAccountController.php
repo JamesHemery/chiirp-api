@@ -14,7 +14,7 @@ class UpdateAccountController extends Controller
     public function __invoke(UpdateAccountRequest $request): Response
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         $user->update($request->validated());
 

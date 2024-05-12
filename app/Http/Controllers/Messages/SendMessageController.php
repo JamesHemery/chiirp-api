@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Messages;
 
 use App\Events\MessageSent;
 use App\Exceptions\CantSendMessageToYourself;
 use App\Exceptions\InvalidMessageContentSignature;
-use App\Http\Requests\SendMessageRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Messages\SendMessageRequest;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Response;

@@ -19,7 +19,7 @@ class UpdatePublicKeyController extends Controller
     public function __invoke(UpdatePublicKeyRequest $request): Response
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         $publicKey = $request->string('public_key')->toString();
 
