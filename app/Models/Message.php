@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use YieldStudio\EloquentPublicId\HasPublicId;
 
-class Message extends Model implements HasMedia
+class Message extends BaseModel implements HasMedia
 {
     use HasPublicId, InteractsWithMedia;
 

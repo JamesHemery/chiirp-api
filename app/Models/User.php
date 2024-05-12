@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use App\Models\Traits\ConvertDateTimeToUTC;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +19,7 @@ use YieldStudio\EloquentPublicId\HasPublicId;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, HasPublicId, Notifiable;
+    use ConvertDateTimeToUTC, HasApiTokens, HasFactory, HasPublicId, Notifiable;
 
     public const int LOGIN_CODE_DURATION_IN_MINUTES = 5;
 
@@ -39,6 +41,14 @@ class User extends Authenticatable
             'login_code_expires_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * @return BelongsToMany<User>
+     */
+    public function buddies(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'buddies', 'user_id', 'buddy_id');
     }
 
     /**
