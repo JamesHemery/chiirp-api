@@ -23,7 +23,7 @@ Route::prefix('v1')->group(function () {
 
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::get('messages', ListMessagesController::class);
-    Route::post('messages', SendMessageController::class);
+    Route::post('message/send', SendMessageController::class);
 
     Route::get('account', ShowAccountController::class);
     Route::patch('account', UpdateAccountController::class);
