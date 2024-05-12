@@ -9,10 +9,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ForceAcceptJson
 {
-    public function handle(Request $request, Closure $next): Response|RedirectResponse|JsonResponse
+    public function handle(Request $request, Closure $next): Response|RedirectResponse|JsonResponse|StreamedResponse
     {
         $request->headers->set('Accept', 'application/json');
 

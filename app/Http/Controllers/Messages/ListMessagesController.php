@@ -17,7 +17,7 @@ class ListMessagesController extends Controller
         /** @var User $user */
         $user = $request->user('sanctum');
 
-        $messages = $user->receivedMessages()->whereNull('erased_at')->get();
+        $messages = $user->receivedMessages()->with('sender')->whereNull('erased_at')->get();
 
         return MessageResource::collection($messages);
     }

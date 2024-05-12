@@ -17,7 +17,9 @@ class MessageResource extends JsonResource
     {
         return [
             'id' => $this->public_id,
-            // TODO
+            'created_at' => $this->created_at,
+            'listened_at' => $this->listened_at,
+            'sender' => BuddyResource::make($this->whenLoaded('sender')),
         ];
     }
 }
