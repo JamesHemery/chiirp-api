@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.27",
         "spatie/laravel-medialibrary": "^11.4",
-        "yieldstudio/eloquent-public-id": "^1.0"
+        "yieldstudio/eloquent-public-id": "^1.0",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
