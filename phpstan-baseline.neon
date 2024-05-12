@@ -1,0 +1,24 @@
+parameters:
+    ignoreErrors:
+        - '#PHPDoc tag @var#'
+        - '#Unsafe usage of new static#'
+        - '#Call to an undefined static method JustSteveKing\\StatusCode\\Http#'
+        - '#Call to an undefined method Faker\\Generator::#'
+        - '#Access to an undefined property App\\Models\\[a-zA-Z0-9\\_]+::\$pivot\.#'
+        - '#Pest\\PendingCalls\\TestCall\|Pest\\Support\\HigherOrderTapProxy::#'
+        # Pest implicitly binds $this to the current test case
+        # @see https://pestphp.com/docs/underlying-test-case
+        -
+            message: '#^Undefined variable: \$this$#'
+            paths:
+                - tests/*
+        # Pest custom expectations are dynamic and not conducive static analysis
+        # @see https://pestphp.com/docs/expectations#custom-expectations
+        -
+            message: '#Call to an undefined method Pest\\Expectation|Pest\\Support\\Extendable::#'
+            paths:
+                - tests/*
+        -
+            message: '#Access to an undefined property Pest\\Expectation|Pest\\Support\\Extendable::#'
+            paths:
+                - tests/*

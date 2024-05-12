@@ -1,0 +1,22 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# GIT Blacklist
+blacklist_base='git --no-pager grep --word-regexp -G -e "dump(" -e "ray(" -e "dd(" -e "die(" -e "var_dump(" -e "debug(" -e "exit;"'
+
+if $blacklist_base -- -q $(git --no-pager diff --name-only -- '*.php');
+then
+  echo '\nAborting commit due to presence of blacklist code:\n'
+  $blacklist_base -- -n --break --heading $(git --no-pager diff --name-only -- '*.php')
+  exit 1
+fi
+
+# PHPStan
+composer types -- --no-ansi --no-interaction --no-progress
+
+# Laravel Pint
+composer lint
+
+npx --no-install lint-staged
+
+exit 0
