@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Buddies\AddBuddyController;
+use App\Http\Controllers\Buddies\DeleteBuddyController;
+use App\Http\Controllers\Buddies\ListBuddiesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SendLoginCodeController;
 use App\Http\Controllers\SendMessageController;
@@ -19,4 +22,8 @@ Route::prefix('v1')->group(function () {
 
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::post('messages', SendMessageController::class);
+
+    Route::get('buddies', ListBuddiesController::class);
+    Route::post('buddy', AddBuddyController::class);
+    Route::delete('buddy/{buddy}', DeleteBuddyController::class);
 });
