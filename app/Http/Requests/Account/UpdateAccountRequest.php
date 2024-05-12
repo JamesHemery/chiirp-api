@@ -27,7 +27,7 @@ class UpdateAccountRequest extends FormRequest
                 'email:rfc,dns',
                 'max:255',
                 Rule::unique('users', 'email')
-                    ->ignoreModel($user)
+                    ->ignoreModel($user),
             ],
             'name' => 'sometimes|string|max:255',
         ];
