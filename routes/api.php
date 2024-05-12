@@ -11,8 +11,8 @@ use App\Http\Controllers\Buddies\AddBuddyController;
 use App\Http\Controllers\Buddies\DeleteBuddyController;
 use App\Http\Controllers\Buddies\ListBuddiesController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Messages\SendMessageController;
 use App\Http\Controllers\SendLoginCodeController;
-use App\Http\Controllers\SendMessageController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
@@ -21,6 +21,7 @@ Route::prefix('v1')->group(function () {
 });
 
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
+    Route::get('messages', SendMessageController::class);
     Route::post('messages', SendMessageController::class);
 
     Route::get('account', ShowAccountController::class);

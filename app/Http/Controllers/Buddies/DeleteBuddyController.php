@@ -13,7 +13,7 @@ class DeleteBuddyController
     public function __invoke(DeleteBuddyRequest $request, User $buddy): Response
     {
         /** @var User $user */
-        $user = $request->user();
+        $user = $request->user('sanctum');
 
         $user->buddies()->detach($buddy);
         $buddy->buddies()->detach($user);
