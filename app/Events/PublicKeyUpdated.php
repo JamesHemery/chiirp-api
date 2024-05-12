@@ -7,11 +7,11 @@ namespace App\Events;
 use App\Models\User;
 use Illuminate\Foundation\Events\Dispatchable;
 
-class NewBuddy
+class PublicKeyUpdated
 {
     use Dispatchable;
 
-    public function __construct(public readonly User $userA, public readonly User $userB)
+    public function __construct(public readonly User $user)
     {
     }
 }
