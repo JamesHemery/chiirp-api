@@ -5,15 +5,16 @@
     "keywords": ["laravel", "framework", "api", "rest", "desktop", "app"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
+        "ext-openssl": "*",
         "juststeveking/http-status-code": "^3.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "league/flysystem-aws-s3-v3": "^3.27",
+        "resend/resend-php": "^0.12.0",
         "spatie/laravel-medialibrary": "^11.4",
-        "yieldstudio/eloquent-public-id": "^1.0",
-        "ext-openssl": "*"
+        "yieldstudio/eloquent-public-id": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
