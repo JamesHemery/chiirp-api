@@ -10,7 +10,7 @@ class UpdatePublicKeyRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return auth()->check();
+        return auth('sanctum')->check();
     }
 
     public function rules(): array

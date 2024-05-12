@@ -12,6 +12,7 @@ use App\Http\Controllers\Buddies\DeleteBuddyController;
 use App\Http\Controllers\Buddies\ListBuddiesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Messages\ListMessagesController;
+use App\Http\Controllers\Messages\ReadAudioMessageController;
 use App\Http\Controllers\Messages\SendMessageController;
 use App\Http\Controllers\SendLoginCodeController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ Route::prefix('v1')->group(function () {
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::get('messages', ListMessagesController::class);
     Route::post('message/send', SendMessageController::class);
+    Route::get('message/{message}/audio', ReadAudioMessageController::class);
 
     Route::get('account', ShowAccountController::class);
     Route::patch('account', UpdateAccountController::class);
