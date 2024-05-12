@@ -31,7 +31,7 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::patch('account', UpdateAccountController::class);
     Route::delete('account', DeleteAccountController::class);
     Route::post('account/avatar', UpdateAvatarController::class);
-    Route::post('account/encryption-keys', UpdatePublicKeyController::class);
+    Route::post('account/public-key', UpdatePublicKeyController::class);
 
     Route::get('buddies', ListBuddiesController::class);
     Route::post('buddy', AddBuddyController::class);
